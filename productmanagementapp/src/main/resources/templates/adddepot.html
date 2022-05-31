@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employees</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="base :: header">
+
+</div>
+<div class="container">
+    <H1>Add Product</H1>
+    <form method="post" th:action="@{/add-new-product}" th:object="${product}" >
+
+        <label for="name" class="form-label">Name:</label><br>
+        <input type="text" id="name" name="name" th:field="*{name}" class="form-control"><br>
+
+        <label for="description" class="form-label">Description:</label><br>
+        <input type="text" id="description" name="description" th:field="*{description}" class="form-control"><br>
+
+        <label for="brand" class="form-label">Brand:</label><br>
+        <input type="number" id="brand" name="brand" th:field="*{brand}" class="form-control" ><br>
+
+        <label for="quantity" class="form-label">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" th:field="*{quantity}" class="form-control"><br>
+
+        <label for="depots" class="form-label">Choose a Depot:</label>
+        <select name="depots" id="depots" th:field="*{depot.id}">
+            <option th:each="depot : ${depots}" th:value="${depot.id}"  th:text="${depot.name}" > </option>
+        </select>
+
+        <br> <br>
+        <input type="submit" value="Submit" class="btn btn-primary" >
+    </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
