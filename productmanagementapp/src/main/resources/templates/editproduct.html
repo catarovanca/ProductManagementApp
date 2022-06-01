@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Employees</title>
+    <title>Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
@@ -11,8 +11,12 @@
 
 </div>
 <div class="container">
-    <H1>Add Product</H1>
-    <form method="post" th:action="@{/add-new-product}" th:object="${product}" >
+    <H1>Edit Product</H1>
+    <form method="post" th:action="@{/edit-product}" th:object="${product}" >
+
+        <label for="id" class="form-label">Id:</label><br>
+        <input type="number" id="id" name="id" th:field="*{id}" class="form-control"><br>
+
 
         <label for="name" class="form-label">Name:</label><br>
         <input type="text" id="name" name="name" th:field="*{name}" class="form-control"><br>
@@ -28,7 +32,7 @@
 
         <label for="depots" class="form-label">Choose a Depot:</label>
         <select name="depots" id="depots" th:field="*{depot.id}">
-            <option th:each="depot : ${depots}" th:value="${depot.id}"  th:text="${depot.name}" > </option>
+            <option th:each="depot : ${depots}" th:value="${depot.id}"  th:text="${depot.name} +  ' - ' + ${depot.location}" > </option>
         </select>
 
         <br> <br>
