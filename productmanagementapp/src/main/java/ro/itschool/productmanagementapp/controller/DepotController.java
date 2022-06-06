@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ro.itschool.productmanagementapp.entity.DepotModel;
-import ro.itschool.productmanagementapp.entity.ProductModel;
 import ro.itschool.productmanagementapp.service.DepotService;
 import ro.itschool.productmanagementapp.service.exception.DepotNotFoundException;
-import ro.itschool.productmanagementapp.service.exception.ProductNotFoundException;
+
 
 import java.util.List;
 
@@ -60,6 +59,19 @@ public class DepotController {
     public String editDepot(DepotModel depotModel) throws DepotNotFoundException{
         depotService.updateDepot(depotModel);
         return "redirect:/viewDepots";
+    }
+    @GetMapping("search-depot-page")
+    public String searchDepot(Model model){
+        model.addAttribute("depot",new DepotModel());
+        return "searchdepots";
+    }
+
+    @PostMapping("search-depot")
+    public String searchDepotName(String name, Model model){
+        model.addAttribute("depot",new DepotModel());
+        List<DepotModel> foundDepots = depotService.searchByDepotName(name);
+        model.addAttribute("depots", foundDepots);
+        return "founddepots";
     }
 
 }

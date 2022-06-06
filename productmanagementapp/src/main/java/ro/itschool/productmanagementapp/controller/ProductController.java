@@ -77,8 +77,9 @@ public class ProductController {
 
     @PostMapping("search-product")
     public String searchProductName(String name, Model model){
+        model.addAttribute("product",new ProductModel());
         List<ProductModel> foundProducts = productService.searchByProductName(name);
-        model.addAttribute("product", foundProducts);
+        model.addAttribute("products", foundProducts);
         return "foundproducts";
     }
 

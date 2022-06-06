@@ -10,20 +10,17 @@
 <div th:replace="base :: header">
 
 </div>
-<!--
 <div class="container">
-    <h2>Depots List</h2>
-    <div th:each="depot: ${depots}" class="card" style="width: 36rem;">
-        <div class="card-body">
-            <h5 class="card-title"  th:text="'Depot Id: ' + ${depot.id} + ' Depot Name: ' + ${depot.name}"></h5>
-            <p th:text=" 'Depot location: ' + ${depot.location}"></p>
-            <a th:href="@{/edit-depot-page/{id}(id = ${depot.id}) }" class="btn btn-primary">Edit</a>
-            <a th:href="@{/delete-depot/{id}(id = ${depot.id})}" class="btn btn-danger" >Delete</a>
-        </div>
-    </div>
+    <H1>Search depot</H1>
+    <form method="post" th:action="@{/search-depot}" th:object="${depot}" >
+
+        <label for="name" class="form-label">Search for Depot Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" class="form-control" >
+        <input type="submit" value="Submit" class="btn btn-primary"  >
+    </form>
 
 </div>
--->
+
 <div class="container">
     <h2>Depots List</h2>
     <table class="table table-dark table-striped">

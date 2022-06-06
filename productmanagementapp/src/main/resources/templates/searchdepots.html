@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Depots</title>
+    <title>Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body class="p-3 mb-2 bg-dark text-white" >
@@ -11,23 +11,15 @@
 
 </div>
 <div class="container">
-    <H1>Edit Depot</H1>
-    <form method="post" th:action="@{/edit-depot}" th:object="${depot}" >
+    <H1>Search depot</H1>
+    <form method="post" th:action="@{/search-depot}" th:object="${depot}" >
 
-        <label for="id" class="form-label">Id:</label><br>
-        <input type="number" id="id" name="id" th:field="*{id}" class="form-control"><br>
-
-        <label for="name" class="form-label">Name:</label><br>
-        <input type="text" id="name" name="name" th:field="*{name}" class="form-control"><br>
-
-        <label for="location" class="form-label">Location:</label><br>
-        <input type="text" id="location" name="location" th:field="*{location}" class="form-control"><br>
-
+        <label for="name" class="form-label">Search for Depot Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" class="form-control" >
         <input type="submit" value="Submit" class="btn" style="--bs-btn-border-color:#0000cc;  --bs-btn-color:#0000cc " >
     </form>
 
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
