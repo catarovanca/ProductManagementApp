@@ -19,11 +19,6 @@ public class DepotController {
     @Autowired
     private DepotService depotService;
 
-    @GetMapping("/")
-    public String homePage(){
-        return "index";
-    }
-
     @GetMapping("viewDepots")
     public String viewDepots(Model myModel){
         List<DepotModel> depotModelList = depotService.getDepots();

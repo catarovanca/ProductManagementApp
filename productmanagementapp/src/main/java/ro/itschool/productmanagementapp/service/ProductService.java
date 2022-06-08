@@ -63,4 +63,9 @@ public class ProductService {
         }
         return productResults;
     }
+
+    public List<ProductModel> findProductsinDepot(int depotId){
+        List<ProductModel> productModelList = productRepository.searchByDepotID(depotId);
+        return productModelList;
+    }
 }

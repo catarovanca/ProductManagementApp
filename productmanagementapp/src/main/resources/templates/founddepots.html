@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Depots</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link th:href="@{/css/main.css}" rel="stylesheet">
 </head>
 <body class="p-3 mb-2 bg-dark text-white" >
 <div th:replace="base :: header">
@@ -16,9 +17,8 @@
 
         <label for="name" class="form-label">Search for Depot Name:</label>
         <input type="text" id="name" name="name" th:field="*{name}" class="form-control" >
-        <input type="submit" value="Submit" class="btn btn-primary"  >
+        <input type="submit" value="Submit" class="btn btn-search"  >
     </form>
-
 </div>
 
 <div class="container">
@@ -30,13 +30,15 @@
             <th>Depot Location</th>
             <th>Edit</th>
             <th>Delete</th>
+            <th>List Products</th>
         </tr>
         <tr th:each="depot: ${depots}">
             <td th:text="${depot.id}"></td>
             <td th:text="${depot.name}"></td>
             <td th:text="${depot.location}"></td>
-            <td><a th:href="@{/edit-depot-page/{id}(id = ${depot.id}) }" class="btn" style="--bs-btn-border-color:#0000cc;  --bs-btn-color:#0000cc ">Edit</a></td>
-            <td><a th:href="@{/delete-depot/{id}(id = ${depot.id})}" class="btn" style="--bs-btn-border-color:#cc0000;  --bs-btn-color:#cc0000 " >Delete</a></td>
+            <td><a th:href="@{/edit-depot-page/{id}(id = ${depot.id}) }" class="btn btn-edit">Edit</a></td>
+            <td><a th:href="@{/delete-depot/{id}(id = ${depot.id})}" class="btn btn-delete">Delete</a></td>
+            <td><a th:href="@{/products-indepot-page/{id}(id = ${depot.id})}" class="btn btn-listproducts" >List Products</a></td>
         </tr>
     </table>
 </div>

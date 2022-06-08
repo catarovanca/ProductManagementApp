@@ -1,0 +1,46 @@
+.btn-edit{
+border-color: green;
+color: green;
+}
+
+.btn-delete{
+    border-color: #cc0000;
+    color: #cc0000;
+}
+
+.btn-listproducts{
+    border-color: #FFCA33;
+    color: #FFCA33;
+}
+
+.btn-search{
+    border-color: blue;
+    color: blue;
+}
+
+.btn-add{
+    border-color: #0000cc;
+    color: #0000cc;
+}
+
+.btn-edit-form{
+    border-color: #0000cc;
+    color: #0000cc;
+}
+
+.navbar-red{
+    background-color: #cc0000;
+    color:white;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.dropdown-menu{
+    background-color: #cc0000;
+}

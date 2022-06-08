@@ -10,6 +10,7 @@ import ro.itschool.productmanagementapp.entity.DepotModel;
 import ro.itschool.productmanagementapp.entity.ProductModel;
 import ro.itschool.productmanagementapp.service.DepotService;
 import ro.itschool.productmanagementapp.service.ProductService;
+import ro.itschool.productmanagementapp.service.exception.DepotNotFoundException;
 import ro.itschool.productmanagementapp.service.exception.ProductNotFoundException;
 
 import java.util.List;
@@ -83,4 +84,13 @@ public class ProductController {
         return "foundproducts";
     }
 
+    @GetMapping("products-indepot-page/{depotId}")
+    public String productsInDepot(@PathVariable("depotId") int depotId,Model model) throws DepotNotFoundException {
+        List<ProductModel> productModelList = productService.findProductsinDepot(depotId);
+        DepotModel depot = depotService.getDepot(depotId);
+        model.addAttribute("depot",depot);
+        model.addAttribute("products",productModelList);
+
+        return "foundproductsindepot";
+    }
 }

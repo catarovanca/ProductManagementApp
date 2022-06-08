@@ -5,28 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link th:href="@{/css/main.css}" rel="stylesheet">
 </head>
 <body class="p-3 mb-2 bg-dark text-white" >
 <div th:replace="base :: header">
 
 </div>
-<!--
-<div class="container">
-    <h2>Product List</h2>
-    <div th:each="product: ${products}" class="card" style="width: 36rem;">
-        <div class="card-body">
-            <h5 class="card-title"  th:text=" 'Product ID: ' + ${product.id} + ' Product Name: ' + ${product.name}"></h5>
-            <p th:text="'Description: ' + ${product.description} "></p>
-            <p th:text="'Brand: ' + ${product.brand}"></p>
-            <p th:text="'Quantity: ' + ${product.quantity}"></p>
-            <p th:text="'Depot location: ' + ${product.depot.name} + ' - ' + ${product.depot.location}"></p>
-            <a th:href="@{/edit-product-page/{id}(id = ${product.id}) }" class="btn btn-primary">Edit</a>
-            <a th:href="@{/delete-product/{id}(id = ${product.id})}" class="btn btn-danger" >Delete</a>
-        </div>
-    </div>
-</div>
--->
-
 <div class="container">
     <h2>Products List</h2>
     <table class="table table-dark table-striped">
@@ -47,8 +31,8 @@
             <td th:text="${product.brand}"></td>
             <td th:text="${product.quantity}"></td>
             <td th:text="${product.depot.name} + ' - ' + ${product.depot.location}"></td>
-            <td><a th:href="@{/edit-product-page/{id}(id = ${product.id}) }" class="btn" style="--bs-btn-border-color:#0000cc;  --bs-btn-color:#0000cc ">Edit</a></td>
-            <td><a th:href="@{/delete-product/{id}(id = ${product.id})}" class="btn" style="--bs-btn-border-color:#cc0000;  --bs-btn-color:#cc0000 " >Delete</a></td>
+            <td><a th:href="@{/edit-product-page/{id}(id = ${product.id}) }" class="btn btn-edit">Edit</a></td>
+            <td><a th:href="@{/delete-product/{id}(id = ${product.id})}" class="btn btn-delete">Delete</a></td>
         </tr>
     </table>
 </div>
